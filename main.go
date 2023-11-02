@@ -1,24 +1,23 @@
 package main
 
 import (
-	"fmt"
+	"github.com/Abu-Zakaria/p2p_poc/udp"
+	"log"
 	"os"
 )
 
 func main() {
 	args := os.Args
 
-	if len(args) < 2 {
-		panic("not enough arguments")
+	if len(args) == 1 {
+		log.Fatal("args missing!")
 	}
 
-	arg1 := args[1]
+	firstArgs := args[1]
 
-	if arg1 == "listen" {
-		listen()
-	} else if arg1 == "connect" {
-		connect()
+	if firstArgs == "udp_server" {
+		udp.CreateUDPServer()
 	} else {
-		fmt.Println("wat da hell u want buddy?")
+
 	}
 }
